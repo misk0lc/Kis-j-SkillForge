@@ -46,13 +46,13 @@
 
       <h3>{{ challenge.title }}</h3>
       <p class="category">{{ challenge.category }}</p>
-      <p class="points">{{ challenge.rewardPoints }} pont</p>
+      <p class="points">{{ challenge.reward_points }} pont</p>
       <p class="dates">
-        📅 {{ challenge.startDate | date:'yyyy.MM.dd' }} - {{ challenge.endDate | date:'yyyy.MM.dd' }}
+        {{ challenge.start_date | date:'yyyy.MM.dd' }} - {{ challenge.end_date | date:'yyyy.MM.dd' }}
       </p>
       
-      <span class="status" [class.active]="challenge.isActive">
-        {{ challenge.isActive ? 'Aktív' : 'Inaktív' }}
+      <span class="status" [class.active]="challenge.is_active">
+        {{ challenge.is_active ? 'Aktív' : 'Inaktív' }}
       </span>
 
       <div class="actions">

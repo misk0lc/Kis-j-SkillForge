@@ -17,10 +17,10 @@ export class ChallengeForm implements OnInit {
     title: '',
     category: 'CODE',
     difficulty: 'EASY',
-    rewardPoints: 0,
-    startDate: '',
-    endDate: '',
-    isActive: true,
+    reward_points: 0,
+    start_date: '',
+    end_date: '',
+    is_active: true,
     description: ''
   };
 
@@ -106,18 +106,18 @@ export class ChallengeForm implements OnInit {
       return false;
     }
 
-    if (this.challenge.rewardPoints <= 0) {
+    if (this.challenge.reward_points <= 0) {
       alert('A pontszámnak pozitívnak kell lennie!');
       return false;
     }
 
-    if (!this.challenge.startDate || !this.challenge.endDate) {
+    if (!this.challenge.start_date || !this.challenge.end_date) {
       alert('Mindkét dátum kötelező!');
       return false;
     }
 
     // 👇 FONTOS: Dátum validáció (endDate ne legyen korábbi, mint startDate)
-    if (this.challenge.endDate < this.challenge.startDate) {
+    if (this.challenge.end_date < this.challenge.start_date) {
       alert('A befejezés dátuma nem lehet korábbi, mint a kezdés!');
       return false;
     }

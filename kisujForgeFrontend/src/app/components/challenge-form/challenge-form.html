@@ -51,7 +51,7 @@
       <input 
         type="number" 
         id="points" 
-        [(ngModel)]="challenge.rewardPoints" 
+        [(ngModel)]="challenge.reward_points" 
         name="points"
         min="1"
         placeholder="pl. 100"
@@ -66,7 +66,7 @@
         <input 
           type="date" 
           id="startDate" 
-          [(ngModel)]="challenge.startDate" 
+          [(ngModel)]="challenge.start_date" 
           name="startDate"
           required
         >
@@ -77,7 +77,7 @@
         <input 
           type="date" 
           id="endDate" 
-          [(ngModel)]="challenge.endDate" 
+          [(ngModel)]="challenge.end_date" 
           name="endDate"
           required
         >
@@ -89,7 +89,7 @@
       <label>
         <input 
           type="checkbox" 
-          [(ngModel)]="challenge.isActive" 
+          [(ngModel)]="challenge.is_active" 
           name="isActive"
         >
         <span>Aktív kihívás</span>

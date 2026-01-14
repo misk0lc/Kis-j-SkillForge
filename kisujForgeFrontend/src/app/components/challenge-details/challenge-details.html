@@ -16,8 +16,8 @@
         <span class="difficulty-badge" [class]="'badge-' + challenge.difficulty.toLowerCase()">
           {{ challenge.difficulty }}
         </span>
-        <span class="status-badge" [class.active]="challenge.isActive">
-          {{ challenge.isActive ? 'Aktív' : 'Inaktív' }}
+        <span class="status-badge" [class.active]="challenge.is_active">
+          {{ challenge.is_active ? 'Aktív' : 'Inaktív' }}
         </span>
       </div>
     </div>
@@ -34,21 +34,21 @@
       <div class="info-card">
         <div>
           <p class="label">Pontok</p>
-          <p class="value">{{ challenge.rewardPoints }}</p>
+          <p class="value">{{ challenge.reward_points }}</p>
         </div>
       </div>
 
       <div class="info-card">
         <div>
           <p class="label">Kezdés</p>
-          <p class="value">{{ challenge.startDate | date:'yyyy.MM.dd' }}</p>
+          <p class="value">{{ challenge.start_date | date:'yyyy.MM.dd' }}</p>
         </div>
       </div>
 
       <div class="info-card">
         <div>
           <p class="label">Befejezés</p>
-          <p class="value">{{ challenge.endDate | date:'yyyy.MM.dd' }}</p>
+          <p class="value">{{ challenge.end_date | date:'yyyy.MM.dd' }}</p>
         </div>
       </div>
     </div>

@@ -32,10 +32,10 @@ export class Dashboard implements OnInit {
         this.challenges = data;
         
         // 👇 Aktív kihívások számolása
-        this.activeChallenges = data.filter(c => c.isActive).length;
+        this.activeChallenges = data.filter(c => c.is_active).length;
         
-        // 👇 Összes pont számolása (reduce = összeadás)
-        this.totalPoints = data.reduce((sum, c) => sum + c.rewardPoints, 0);
+        // 👇 Összes pont számolása
+        this.totalPoints = data.reduce((sum, c) => sum + Number(c.reward_points || 0), 0);
         
         this.isLoading = false;
       },
