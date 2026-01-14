@@ -1,1 +1,65 @@
-<p>challenge-list works!</p>
+<div class="list-container">
+  <h1>📋 Összes kihívás</h1>
+
+  <!-- 👇 Szűrők -->
+  <div class="filters">
+    <div class="filter-group">
+      <label for="difficulty">Nehézség:</label>
+      <select id="difficulty" [(ngModel)]="selectedDifficulty" (change)="applyFilters()">
+        <option value="">Összes</option>
+        <option value="EASY">Könnyű</option>
+        <option value="MEDIUM">Közepes</option>
+        <option value="HARD">Nehéz</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="category">Kategória:</label>
+      <select id="category" [(ngModel)]="selectedCategory" (change)="applyFilters()">
+        <option value="">Összes</option>
+        <option value="CODE">Kódolás</option>
+        <option value="DESIGN">Design</option>
+        <option value="DATA">Adattudomány</option>
+        <option value="SOFT">Soft skill</option>
+      </select>
+    </div>
+
+    <a routerLink="/challenges/add" class="btn-add">+ Új kihívás</a>
+  </div>
+
+  <!-- 👇 Betöltés -->
+  <div *ngIf="isLoading" class="loading">⏳ Betöltés...</div>
+
+  <!-- 👇 Üres állapot -->
+  <div *ngIf="!isLoading && filteredChallenges.length === 0" class="empty">
+    <p>📭 Nincs ilyen kihívás!</p>
+  </div>
+
+  <!-- 👇 Kihívások listája -->
+  <div *ngIf="!isLoading" class="challenges-grid">
+    <div *ngFor="let challenge of filteredChallenges" class="challenge-card">
+      
+      <!-- Nehézségi badge -->
+      <span class="difficulty-badge" [class]="'badge-' + challenge.difficulty.toLowerCase()">
+        {{ challenge.difficulty }}
+      </span>
+
+      <h3>{{ challenge.title }}</h3>
+      <p class="category">📂 {{ challenge.category }}</p>
+      <p class="points">🏆 {{ challenge.rewardPoints }} pont</p>
+      <p class="dates">
+        📅 {{ challenge.startDate | date:'yyyy.MM.dd' }} - {{ challenge.endDate | date:'yyyy.MM.dd' }}
+      </p>
+      
+      <span class="status" [class.active]="challenge.isActive">
+        {{ challenge.isActive ? '✅ Aktív' : '❌ Inaktív' }}
+      </span>
+
+      <div class="actions">
+        <a [routerLink]="['/challenges', challenge.id]" class="btn-view">👁️ Részletek</a>
+        <a [routerLink]="['/challenges', challenge.id, 'edit']" class="btn-edit">✏️ Szerkeszt</a>
+        <button (click)="deleteChallenge(challenge.id)" class="btn-delete">🗑️ Töröl</button>
+      </div>
+    </div>
+  </div>
+</div>

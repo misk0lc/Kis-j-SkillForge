@@ -1,1 +1,38 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+  <h1>🎯 Kisúj SkillForge - Dashboard</h1>
+
+  <!-- 👇 Betöltés közben ezt mutatjuk -->
+  <div *ngIf="isLoading" class="loading">
+    <p>⏳ Betöltés...</p>
+  </div>
+
+  <!-- 👇 Ha betöltött, megjelennek a statisztikák -->
+  <div *ngIf="!isLoading" class="stats-container">
+    <div class="stat-card">
+      <h2>{{ activeChallenges }}</h2>
+      <p>Aktív kihívások</p>
+    </div>
+
+    <div class="stat-card">
+      <h2>{{ totalPoints }}</h2>
+      <p>Összes megszerezhető pont</p>
+    </div>
+
+    <div class="stat-card">
+      <h2>{{ challenges.length }}</h2>
+      <p>Összes kihívás</p>
+    </div>
+  </div>
+
+  <!-- 👇 Ha nincs egyetlen kihívás sem -->
+  <div *ngIf="!isLoading && challenges.length === 0" class="empty-state">
+    <p>📭 Még nincsenek kihívások!</p>
+    <a routerLink="/challenges/add" class="btn-primary">Hozz létre egyet!</a>
+  </div>
+
+  <!-- 👇 Gyorsgombok -->
+  <div *ngIf="!isLoading && challenges.length > 0" class="actions">
+    <a routerLink="/challenges" class="btn-primary">Összes kihívás megtekintése</a>
+    <a routerLink="/challenges/add" class="btn-secondary">Új kihívás létrehozása</a>
+  </div>
+</div>

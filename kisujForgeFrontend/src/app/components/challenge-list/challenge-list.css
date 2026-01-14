@@ -1,0 +1,198 @@
+/* 📦 Konténer */
+.list-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+/* 🔍 Szűrők */
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  font-weight: 600;
+  color: #555;
+}
+
+.filter-group select {
+  padding: 0.5rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.filter-group select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.btn-add {
+  margin-left: auto;
+  padding: 0.5rem 1.5rem;
+  background: #48bb78;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.btn-add:hover {
+  background: #38a169;
+}
+
+/* ⏳ Betöltés & Üres */
+.loading,
+.empty {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.5rem;
+  color: #666;
+}
+
+/* 🎴 Kártyák grid */
+.challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.challenge-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.challenge-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 🏷️ Nehézségi badge (színkódolás!) */
+.difficulty-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: white;
+}
+
+.badge-easy {
+  background: #48bb78;  /* 🟢 Zöld */
+}
+
+.badge-medium {
+  background: #f6ad55;  /* 🟡 Sárga/Narancs */
+}
+
+.badge-hard {
+  background: #f56565;  /* 🔴 Piros */
+}
+
+.challenge-card h3 {
+  margin: 0 0 0.5rem 0;
+  color: #2d3748;
+  font-size: 1.25rem;
+}
+
+.challenge-card p {
+  margin: 0.5rem 0;
+  color: #4a5568;
+  font-size: 0.95rem;
+}
+
+.category {
+  font-weight: 600;
+}
+
+.points {
+  color: #667eea;
+  font-weight: bold;
+}
+
+.dates {
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+.status {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  background: #fc8181;
+  color: white;
+}
+
+.status.active {
+  background: #48bb78;
+}
+
+/* 🔘 Akció gombok */
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.btn-view,
+.btn-edit,
+.btn-delete {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.3s;
+}
+
+.btn-view {
+  background: #4299e1;
+  color: white;
+}
+
+.btn-edit {
+  background: #ed8936;
+  color: white;
+}
+
+.btn-delete {
+  background: #f56565;
+  color: white;
+}
+
+.btn-view:hover,
+.btn-edit:hover,
+.btn-delete:hover {
+  opacity: 0.8;
+}
