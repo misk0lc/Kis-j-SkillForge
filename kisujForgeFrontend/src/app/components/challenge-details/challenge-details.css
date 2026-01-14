@@ -1,0 +1,200 @@
+/* 📦 Konténer */
+.details-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* ⏳ Betöltés */
+.loading,
+.error {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.5rem;
+  color: #666;
+}
+
+.error {
+  color: #e53e3e;
+}
+
+/* 🎯 Kihívás részletek */
+.challenge-detail {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* 📌 Fejléc */
+.header {
+  background: rgb(14, 83, 32);
+  color: white;
+  padding: 2rem;
+}
+
+.header h1 {
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+}
+
+.badges {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.difficulty-badge,
+.status-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.badge-easy {
+  background: #48bb78;
+  color: white;
+}
+
+.badge-medium {
+  background: #f6ad55;
+  color: white;
+}
+
+.badge-hard {
+  background: #f56565;
+  color: white;
+}
+
+.status-badge {
+  background: #fc8181;
+  color: white;
+}
+
+.status-badge.active {
+  background: #48bb78;
+}
+
+/* 📊 Info kártyák grid */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+  background: #f7fafc;
+}
+
+.info-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.info-card .icon {
+  font-size: 2rem;
+}
+
+.info-card .label {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+.info-card .value {
+  margin: 0.25rem 0 0 0;
+  font-size: 1.1rem;
+  color: #2d3748;
+  font-weight: 600;
+}
+
+/* 📝 Leírás szekció */
+.description-section {
+  padding: 2rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.description-section h2 {
+  color: #2d3748;
+  margin: 0 0 1rem 0;
+}
+
+.description {
+  color: #4a5568;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  white-space: pre-wrap;  /* 👈 Megtartja a sortöréseket */
+}
+
+/* 🔘 Akció gombok */
+.actions {
+  display: flex;
+  gap: 1rem;
+  padding: 2rem;
+  border-top: 1px solid #e2e8f0;
+  flex-wrap: wrap;
+}
+
+.btn-edit,
+.btn-delete,
+.btn-back {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.btn-edit {
+  background: #ed8936;
+  color: white;
+}
+
+.btn-edit:hover {
+  background: #dd6b20;
+  transform: scale(1.05);
+}
+
+.btn-delete {
+  background: #f56565;
+  color: white;
+}
+
+.btn-delete:hover {
+  background: #e53e3e;
+  transform: scale(1.05);
+}
+
+.btn-back {
+  background: #4299e1;
+  color: white;
+  margin-left: auto;  /* 👈 Jobbra tolja */
+}
+
+.btn-back:hover {
+  background: #3182ce;
+  transform: scale(1.05);
+}
+
+/* 📱 Reszponzív */
+@media (max-width: 768px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .btn-back {
+    margin-left: 0;
+  }
+}

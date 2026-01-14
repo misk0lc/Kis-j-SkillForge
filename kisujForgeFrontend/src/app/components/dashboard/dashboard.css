@@ -28,7 +28,7 @@ h1 {
 }
 
 .stat-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: rgba(14, 83, 32, 0.438);
   color: white;
   padding: 2rem;
   border-radius: 12px;
@@ -87,12 +87,12 @@ h1 {
 }
 
 .btn-primary {
-  background: #667eea;
+  background: rgba(14, 83, 32, 0.438);
   color: white;
 }
 
 .btn-primary:hover {
-  background: #5568d3;
+  background: rgba(7, 43, 17, 0.438);
   transform: scale(1.05);
 }
 

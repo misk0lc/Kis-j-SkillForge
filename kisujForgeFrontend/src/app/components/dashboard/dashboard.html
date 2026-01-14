@@ -1,9 +1,9 @@
 <div class="dashboard-container">
-  <h1>🎯 Kisúj SkillForge - Dashboard</h1>
+  <h1>Kisúj SkillForge - Dashboard</h1>
 
   <!-- 👇 Betöltés közben ezt mutatjuk -->
   <div *ngIf="isLoading" class="loading">
-    <p>⏳ Betöltés...</p>
+    <p>Betöltés...</p>
   </div>
 
   <!-- 👇 Ha betöltött, megjelennek a statisztikák -->
@@ -26,7 +26,7 @@
 
   <!-- 👇 Ha nincs egyetlen kihívás sem -->
   <div *ngIf="!isLoading && challenges.length === 0" class="empty-state">
-    <p>📭 Még nincsenek kihívások!</p>
+    <p>Még nincsenek kihívások!</p>
     <a routerLink="/challenges/add" class="btn-primary">Hozz létre egyet!</a>
   </div>
 

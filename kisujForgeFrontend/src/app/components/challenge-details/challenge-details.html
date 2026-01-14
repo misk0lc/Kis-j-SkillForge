@@ -1,1 +1,82 @@
-<p>challenge-details works!</p>
+<div class="details-container">
+  
+  <!-- Betöltés -->
+  <div *ngIf="isLoading" class="loading">
+    <p>Betöltés...</p>
+  </div>
+
+  <!-- Ha betöltött a kihívás -->
+  <div *ngIf="!isLoading && challenge" class="challenge-detail">
+    
+    <!-- Fejléc -->
+    <div class="header">
+      <h1>{{ challenge.title }}</h1>
+      
+      <div class="badges">
+        <span class="difficulty-badge" [class]="'badge-' + challenge.difficulty.toLowerCase()">
+          {{ challenge.difficulty }}
+        </span>
+        <span class="status-badge" [class.active]="challenge.isActive">
+          {{ challenge.isActive ? 'Aktív' : 'Inaktív' }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Info kártyák -->
+    <div class="info-grid">
+      <div class="info-card">
+        <div>
+          <p class="label">Kategória</p>
+          <p class="value">{{ challenge.category }}</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div>
+          <p class="label">Pontok</p>
+          <p class="value">{{ challenge.rewardPoints }}</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div>
+          <p class="label">Kezdés</p>
+          <p class="value">{{ challenge.startDate | date:'yyyy.MM.dd' }}</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div>
+          <p class="label">Befejezés</p>
+          <p class="value">{{ challenge.endDate | date:'yyyy.MM.dd' }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leírás -->
+    <div class="description-section">
+      <h2>Leírás</h2>
+      <p class="description">{{ challenge.description }}</p>
+    </div>
+
+    <!-- Akció gombok -->
+    <div class="actions">
+      <a [routerLink]="['/challenges', challenge.id, 'edit']" class="btn-edit">
+        Szerkesztés
+      </a>
+      <button (click)="deleteChallenge()" class="btn-delete">
+        Törlés
+      </button>
+      <a routerLink="/challenges" class="btn-back">
+         Vissza a listához
+      </a>
+    </div>
+  </div>
+
+  <!-- Ha nincs ilyen kihívás -->
+  <div *ngIf="!isLoading && !challenge" class="error">
+    <p>Nem található a kihívás!</p>
+    <a routerLink="/challenges" class="btn-back">Vissza a listához</a>
+  </div>
+
+</div>

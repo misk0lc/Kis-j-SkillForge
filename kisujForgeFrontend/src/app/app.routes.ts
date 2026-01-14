@@ -7,7 +7,7 @@ import { ChallengeDetails } from './components/challenge-details/challenge-detai
 export const routes: Routes = [
   { path: '', component: Dashboard },
   { path: 'challenges', component: ChallengeList },
-  { path: 'challenges/add', component: ChallengeForm },
+  { path: 'challenges/add', component: ChallengeForm },        // 👈 Statikus útvonal előbb!
+  { path: 'challenges/:id/edit', component: ChallengeForm },   // 👈 Paraméteresek utána!
   { path: 'challenges/:id', component: ChallengeDetails },
-  { path: 'challenges/:id/edit', component: ChallengeForm },
 ];

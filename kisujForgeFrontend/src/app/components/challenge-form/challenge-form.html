@@ -1,1 +1,122 @@
-<p>challenge-form works!</p>
+<div class="form-container">
+  
+  <h1>{{ isEditMode ? 'Kihívás szerkesztése' : 'Új kihívás létrehozása' }}</h1>
+
+  <!-- Betöltés -->
+  <div *ngIf="isLoading && isEditMode" class="loading">
+    <p>Betöltés...</p>
+  </div>
+
+  <!-- Űrlap -->
+  <form *ngIf="!isLoading || !isEditMode" (ngSubmit)="onSubmit()" class="challenge-form">
+    
+    <!-- Cím -->
+    <div class="form-group">
+      <label for="title">Cím *</label>
+      <input 
+        type="text" 
+        id="title" 
+        [(ngModel)]="challenge.title" 
+        name="title"
+        placeholder="pl. React alapok elsajátítása"
+        required
+      >
+    </div>
+
+    <!-- Kategória és Nehézség (egy sorban) -->
+    <div class="form-row">
+      <div class="form-group">
+        <label for="category">Kategória *</label>
+        <select id="category" [(ngModel)]="challenge.category" name="category">
+          <option value="CODE">Kódolás</option>
+          <option value="DESIGN">Design</option>
+          <option value="DATA">Adattudomány</option>
+          <option value="SOFT">Soft skill</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="difficulty">Nehézség *</label>
+        <select id="difficulty" [(ngModel)]="challenge.difficulty" name="difficulty">
+          <option value="EASY">Könnyű</option>
+          <option value="MEDIUM">Közepes</option>
+          <option value="HARD">Nehéz</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Pontszám -->
+    <div class="form-group">
+      <label for="points">Pontszám *</label>
+      <input 
+        type="number" 
+        id="points" 
+        [(ngModel)]="challenge.rewardPoints" 
+        name="points"
+        min="1"
+        placeholder="pl. 100"
+        required
+      >
+    </div>
+
+    <!-- Dátumok (egy sorban) -->
+    <div class="form-row">
+      <div class="form-group">
+        <label for="startDate">Kezdés dátuma *</label>
+        <input 
+          type="date" 
+          id="startDate" 
+          [(ngModel)]="challenge.startDate" 
+          name="startDate"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="endDate">Befejezés dátuma *</label>
+        <input 
+          type="date" 
+          id="endDate" 
+          [(ngModel)]="challenge.endDate" 
+          name="endDate"
+          required
+        >
+      </div>
+    </div>
+
+    <!-- Aktív státusz -->
+    <div class="form-group checkbox-group">
+      <label>
+        <input 
+          type="checkbox" 
+          [(ngModel)]="challenge.isActive" 
+          name="isActive"
+        >
+        <span>Aktív kihívás</span>
+      </label>
+    </div>
+
+    <!-- Leírás -->
+    <div class="form-group">
+      <label for="description">Leírás *</label>
+      <textarea 
+        id="description" 
+        [(ngModel)]="challenge.description" 
+        name="description"
+        rows="6"
+        placeholder="Írd le a kihívás részleteit..."
+        required
+      ></textarea>
+    </div>
+
+    <!-- Gombok -->
+    <div class="form-actions">
+      <button type="submit" class="btn-submit" [disabled]="isLoading">
+        {{ isLoading ? 'Mentés...' : (isEditMode ? 'Frissítés' : 'Létrehozás') }}
+      </button>
+      <a routerLink="/challenges" class="btn-cancel">Mégse</a>
+    </div>
+
+  </form>
+
+</div>

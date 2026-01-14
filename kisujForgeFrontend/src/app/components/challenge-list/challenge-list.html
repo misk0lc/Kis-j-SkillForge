@@ -1,5 +1,5 @@
 <div class="list-container">
-  <h1>📋 Összes kihívás</h1>
+  <h1>Összes kihívás</h1>
 
   <!-- 👇 Szűrők -->
   <div class="filters">
@@ -28,11 +28,11 @@
   </div>
 
   <!-- 👇 Betöltés -->
-  <div *ngIf="isLoading" class="loading">⏳ Betöltés...</div>
+  <div *ngIf="isLoading" class="loading">Betöltés...</div>
 
   <!-- 👇 Üres állapot -->
   <div *ngIf="!isLoading && filteredChallenges.length === 0" class="empty">
-    <p>📭 Nincs ilyen kihívás!</p>
+    <p>Nincs ilyen kihívás!</p>
   </div>
 
   <!-- 👇 Kihívások listája -->
@@ -45,20 +45,20 @@
       </span>
 
       <h3>{{ challenge.title }}</h3>
-      <p class="category">📂 {{ challenge.category }}</p>
-      <p class="points">🏆 {{ challenge.rewardPoints }} pont</p>
+      <p class="category">{{ challenge.category }}</p>
+      <p class="points">{{ challenge.rewardPoints }} pont</p>
       <p class="dates">
         📅 {{ challenge.startDate | date:'yyyy.MM.dd' }} - {{ challenge.endDate | date:'yyyy.MM.dd' }}
       </p>
       
       <span class="status" [class.active]="challenge.isActive">
-        {{ challenge.isActive ? '✅ Aktív' : '❌ Inaktív' }}
+        {{ challenge.isActive ? 'Aktív' : 'Inaktív' }}
       </span>
 
       <div class="actions">
-        <a [routerLink]="['/challenges', challenge.id]" class="btn-view">👁️ Részletek</a>
-        <a [routerLink]="['/challenges', challenge.id, 'edit']" class="btn-edit">✏️ Szerkeszt</a>
-        <button (click)="deleteChallenge(challenge.id)" class="btn-delete">🗑️ Töröl</button>
+        <a [routerLink]="['/challenges', challenge.id]" class="btn-view">Részletek</a>
+        <a [routerLink]="['/challenges', challenge.id, 'edit']" class="btn-edit">Szerkeszt</a>
+        <button (click)="deleteChallenge(challenge.id)" class="btn-delete">Töröl</button>
       </div>
     </div>
   </div>
